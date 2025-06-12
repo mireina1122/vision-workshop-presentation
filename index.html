@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ビジョン深掘り勉強会企画書</title>
+    <meta name="description" content="IntraStar主催のビジョン深掘り勉強会企画書 - 新規事業開発における意義明確化ワークショップ">
+    <meta name="author" content="IntraStar">
     <style>
         * {
             margin: 0;
@@ -12,10 +14,12 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
             background: linear-gradient(135deg, #1B365D 0%, #2E86C1 100%);
             scroll-behavior: smooth;
             line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* プログレスバー */
@@ -40,7 +44,7 @@
         /* 個別スライド */
         .slide {
             width: 100%;
-            min-height: 1080px;
+            min-height: 100vh;
             background: #FFFFFF;
             margin: 0 0 2px 0;
             padding: 80px;
@@ -62,47 +66,50 @@
         }
 
         .title-slide h1 {
-            font-size: 72px;
+            font-size: clamp(36px, 5vw, 72px);
             font-weight: 800;
             margin-bottom: 48px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             letter-spacing: 2px;
+            line-height: 1.2;
         }
 
         .title-slide .subtitle {
-            font-size: 42px;
+            font-size: clamp(24px, 3.5vw, 42px);
             font-weight: 300;
             margin-bottom: 72px;
-            opacity: 0.9;
             border-left: 6px solid #E67E22;
             padding-left: 30px;
             max-width: 1200px;
             text-align: left;
+            line-height: 1.4;
         }
 
         .title-slide .meta-info {
-            font-size: 32px;
+            font-size: clamp(18px, 2.5vw, 32px);
             font-weight: 400;
             color: #2C3E50;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 16px;
             width: 100%;
             max-width: 800px;
             margin-top: 96px;
+            text-align: center;
         }
 
         .intrastar-logo {
             position: absolute;
             top: 80px;
             right: 80px;
-            width: 120px;
-            height: 120px;
+            width: clamp(80px, 8vw, 120px);
+            height: clamp(80px, 8vw, 120px);
             background: #2E86C1;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            font-size: clamp(24px, 4vw, 48px);
             font-weight: bold;
             color: #FFFFFF;
             box-shadow: 0 10px 30px rgba(46, 134, 193, 0.4);
@@ -110,48 +117,52 @@
 
         /* 標準スライド */
         h1 {
-            font-size: 60px;
+            font-size: clamp(32px, 4.5vw, 60px);
             font-weight: 700;
             color: #1B365D;
             margin-bottom: 48px;
             border-bottom: 4px solid #E67E22;
             padding-bottom: 24px;
+            line-height: 1.2;
         }
 
         h2 {
-            font-size: 48px;
+            font-size: clamp(28px, 3.5vw, 48px);
             font-weight: 600;
             color: #2C3E50;
             margin-bottom: 36px;
             display: flex;
             align-items: center;
+            line-height: 1.3;
         }
 
         h2::before {
             content: '';
             width: 8px;
-            height: 48px;
+            height: clamp(28px, 3.5vw, 48px);
             background: #E67E22;
             margin-right: 24px;
             border-radius: 4px;
+            flex-shrink: 0;
         }
 
         h3 {
-            font-size: 36px;
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: 600;
             color: #2E86C1;
             margin: 48px 0 24px 0;
+            line-height: 1.3;
         }
 
         p, li {
-            font-size: 30px;
+            font-size: clamp(20px, 2.5vw, 30px);
             line-height: 1.7;
             color: #2C3E50;
             margin-bottom: 24px;
         }
 
         ul {
-            margin-left: 48px;
+            margin-left: 24px;
             margin-bottom: 48px;
         }
 
@@ -162,13 +173,13 @@
 
         li::marker {
             color: #E67E22;
-            font-size: 36px;
+            font-size: clamp(24px, 3vw, 36px);
         }
 
         /* エグゼクティブサマリー */
         .executive-summary {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 48px;
             margin: 72px 0;
         }
@@ -189,20 +200,21 @@
         }
 
         .summary-icon {
-            font-size: 72px;
+            font-size: clamp(48px, 6vw, 72px);
             margin-bottom: 24px;
             color: #2E86C1;
         }
 
         .summary-title {
-            font-size: 36px;
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: 600;
             color: #1B365D;
             margin-bottom: 24px;
+            line-height: 1.3;
         }
 
         .summary-text {
-            font-size: 28px;
+            font-size: clamp(18px, 2.2vw, 28px);
             color: #2C3E50;
             line-height: 1.6;
         }
@@ -210,7 +222,7 @@
         /* 企業カード */
         .company-analysis {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 72px;
             margin: 72px 0;
         }
@@ -243,10 +255,11 @@
         }
 
         .company-name {
-            font-size: 42px;
+            font-size: clamp(28px, 3.5vw, 42px);
             font-weight: 700;
             color: #1B365D;
             margin-bottom: 24px;
+            line-height: 1.3;
         }
 
         .vision-text {
@@ -254,17 +267,18 @@
             color: #FFFFFF;
             padding: 36px;
             border-radius: 16px;
-            font-size: 32px;
+            font-size: clamp(20px, 2.5vw, 32px);
             font-weight: 500;
             text-align: center;
             margin-bottom: 36px;
             box-shadow: 0 10px 30px rgba(46, 134, 193, 0.3);
+            line-height: 1.4;
         }
 
         /* フレームワーク図 */
         .framework-diagram {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 48px;
             margin: 72px 0;
             position: relative;
@@ -292,28 +306,29 @@
             top: -24px;
             left: 50%;
             transform: translateX(-50%);
-            width: 72px;
-            height: 72px;
+            width: clamp(60px, 6vw, 72px);
+            height: clamp(60px, 6vw, 72px);
             background: linear-gradient(135deg, #E67E22, #F39C12);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: bold;
             color: #FFFFFF;
             box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
         }
 
         .stage-title {
-            font-size: 36px;
+            font-size: clamp(24px, 3vw, 36px);
             font-weight: 600;
             color: #1B365D;
             margin: 48px 0 24px 0;
+            line-height: 1.3;
         }
 
         .stage-content {
-            font-size: 28px;
+            font-size: clamp(18px, 2.2vw, 28px);
             color: #2C3E50;
             text-align: left;
         }
@@ -326,7 +341,7 @@
 
         .timeline {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
             position: relative;
         }
@@ -361,21 +376,22 @@
         }
 
         .timeline-time {
-            font-size: 32px;
+            font-size: clamp(20px, 2.5vw, 32px);
             font-weight: bold;
             color: #E67E22;
             margin-bottom: 12px;
         }
 
         .timeline-title {
-            font-size: 28px;
+            font-size: clamp(18px, 2.2vw, 28px);
             font-weight: 600;
             color: #1B365D;
             margin-bottom: 12px;
+            line-height: 1.3;
         }
 
         .timeline-desc {
-            font-size: 24px;
+            font-size: clamp(16px, 2vw, 24px);
             color: #2C3E50;
             line-height: 1.4;
         }
@@ -399,7 +415,7 @@
             background: #FFFFFF;
             padding: 12px 24px;
             border-radius: 50px;
-            font-size: 48px;
+            font-size: clamp(32px, 4vw, 48px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
@@ -414,7 +430,7 @@
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 48px;
             margin: 72px 0;
         }
@@ -435,16 +451,18 @@
         }
 
         .metric-value {
-            font-size: 60px;
+            font-size: clamp(36px, 5vw, 60px);
             font-weight: 800;
             color: #E67E22;
             margin-bottom: 24px;
+            line-height: 1.1;
         }
 
         .metric-label {
-            font-size: 28px;
+            font-size: clamp(18px, 2.2vw, 28px);
             color: #2C3E50;
             font-weight: 500;
+            line-height: 1.4;
         }
 
         /* アクションアイテム */
@@ -458,14 +476,14 @@
 
         .action-items h3 {
             color: #FFFFFF;
-            font-size: 48px;
+            font-size: clamp(32px, 4vw, 48px);
             margin-bottom: 48px;
             text-align: center;
         }
 
         .action-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 48px;
         }
 
@@ -478,41 +496,150 @@
         }
 
         .action-title {
-            font-size: 32px;
+            font-size: clamp(20px, 2.5vw, 32px);
             font-weight: 600;
             margin-bottom: 24px;
             color: #F39C12;
+            line-height: 1.3;
         }
 
         .action-desc {
-            font-size: 28px;
+            font-size: clamp(18px, 2.2vw, 28px);
             line-height: 1.6;
             opacity: 0.9;
         }
 
-        /* レスポンシブ対応 */
-        @media (max-width: 1440px) {
-            .slide { padding: 60px; min-height: 810px; }
-            h1 { font-size: 54px; }
-            h2 { font-size: 42px; }
-            h3 { font-size: 32px; }
-            p, li { font-size: 28px; }
-            .title-slide h1 { font-size: 64px; }
-            .title-slide .subtitle { font-size: 38px; }
+        /* スマホ専用最適化 */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+                min-height: 100vh;
+            }
+
+            .title-slide .meta-info {
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 48px;
+            }
+
+            .intrastar-logo {
+                top: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+
+            .executive-summary {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin: 48px 0;
+            }
+
+            .company-analysis {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                margin: 48px 0;
+            }
+
+            .framework-diagram {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin: 48px 0;
+            }
+
+            .timeline {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                margin: 48px 0;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .action-items {
+                padding: 48px 24px;
+                margin: 48px 0;
+            }
+
+            .highlight-box {
+                padding: 24px;
+                margin: 48px 0;
+            }
+
+            .highlight-box::before {
+                top: -24px;
+                left: 24px;
+                font-size: 32px;
+                padding: 8px 16px;
+            }
+
+            ul {
+                margin-left: 16px;
+            }
+
+            h2::before {
+                margin-right: 16px;
+            }
         }
 
-        @media (max-width: 1024px) {
-            .slide { padding: 40px; min-height: 576px; }
-            .executive-summary { grid-template-columns: 1fr; }
-            .company-analysis { grid-template-columns: 1fr; }
-            .framework-diagram { grid-template-columns: 1fr; }
-            .timeline { grid-template-columns: repeat(3, 1fr); }
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-            .action-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 48px; }
-            h2 { font-size: 36px; }
-            h3 { font-size: 30px; }
-            p, li { font-size: 26px; }
+        /* タブレット専用最適化 */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slide {
+                padding: 60px 40px;
+            }
+
+            .executive-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .framework-diagram {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 大画面専用最適化 */
+        @media (min-width: 1441px) {
+            .slide {
+                padding: 100px;
+                min-height: 1080px;
+            }
+
+            .executive-summary {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 72px;
+            }
+
+            .framework-diagram {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .timeline {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         /* スクロールアニメーション */
@@ -535,6 +662,33 @@
 
         .floating {
             animation: float 3s ease-in-out infinite;
+        }
+
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .summary-card:hover,
+            .company-card:hover,
+            .framework-stage:hover,
+            .timeline-item:hover,
+            .metric-card:hover {
+                transform: none;
+            }
+
+            .summary-card:active,
+            .company-card:active,
+            .framework-stage:active,
+            .timeline-item:active,
+            .metric-card:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* 高DPI画面対応 */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
         }
     </style>
 </head>
@@ -964,31 +1118,31 @@
         <div class="slide">
             <div class="intrastar-logo floating">IS</div>
             <h1 style="color: #1B365D; text-align: center; margin-bottom: 48px;">共創する、新しい事業の意義</h1>
-            <div style="font-size: 42px; font-weight: 300; margin-bottom: 72px; color: #2C3E50; text-align: center; border-left: 6px solid #E67E22; padding-left: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">ビジョンから価値へ、理念から実践へ</div>
+            <div style="font-size: clamp(24px, 3.5vw, 42px); font-weight: 300; margin-bottom: 72px; color: #2C3E50; text-align: center; border-left: 6px solid #E67E22; padding-left: 30px; max-width: 1200px; margin-left: auto; margin-right: auto; line-height: 1.4;">ビジョンから価値へ、理念から実践へ</div>
             
             <div style="background: linear-gradient(135deg, #1B365D, #2E86C1); color: #FFFFFF; border-radius: 24px; padding: 72px; margin: 72px 0;">
-                <h3 style="color: #FFFFFF; font-size: 48px; margin-bottom: 48px; text-align: center;">IntraStarと実現する変革</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;">
+                <h3 style="color: #FFFFFF; font-size: clamp(32px, 4vw, 48px); margin-bottom: 48px; text-align: center;">IntraStarと実現する変革</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px;">
                     <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 36px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="font-size: 32px; font-weight: 600; margin-bottom: 24px; color: #F39C12;">深い理解の獲得</div>
-                        <div style="font-size: 28px; line-height: 1.6; opacity: 0.9;">表面的でない、本質的なビジョン理解を通じて、誰もが納得する事業意義を明確化</div>
+                        <div style="font-size: clamp(20px, 2.5vw, 32px); font-weight: 600; margin-bottom: 24px; color: #F39C12; line-height: 1.3;">深い理解の獲得</div>
+                        <div style="font-size: clamp(18px, 2.2vw, 28px); line-height: 1.6; opacity: 0.9;">表面的でない、本質的なビジョン理解を通じて、誰もが納得する事業意義を明確化</div>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 36px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="font-size: 32px; font-weight: 600; margin-bottom: 24px; color: #F39C12;">実践的スキルの習得</div>
-                        <div style="font-size: 28px; line-height: 1.6; opacity: 0.9;">明日から活用できる具体的なフレームワークと思考プロセスを組織に定着</div>
+                        <div style="font-size: clamp(20px, 2.5vw, 32px); font-weight: 600; margin-bottom: 24px; color: #F39C12; line-height: 1.3;">実践的スキルの習得</div>
+                        <div style="font-size: clamp(18px, 2.2vw, 28px); line-height: 1.6; opacity: 0.9;">明日から活用できる具体的なフレームワークと思考プロセスを組織に定着</div>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 36px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="font-size: 32px; font-weight: 600; margin-bottom: 24px; color: #F39C12;">継続的成長の基盤</div>
-                        <div style="font-size: 28px; line-height: 1.6; opacity: 0.9;">一回限りでない、組織の新規事業開発力を継続的に向上させる文化と仕組みを構築</div>
+                        <div style="font-size: clamp(20px, 2.5vw, 32px); font-weight: 600; margin-bottom: 24px; color: #F39C12; line-height: 1.3;">継続的成長の基盤</div>
+                        <div style="font-size: clamp(18px, 2.2vw, 28px); line-height: 1.6; opacity: 0.9;">一回限りでない、組織の新規事業開発力を継続的に向上させる文化と仕組みを構築</div>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); border-radius: 16px; padding: 36px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                        <div style="font-size: 32px; font-weight: 600; margin-bottom: 24px; color: #F39C12;">競争優位の確立</div>
-                        <div style="font-size: 28px; line-height: 1.6; opacity: 0.9;">ビジョンドリブンな事業創出により、競合との明確な差別化と持続的優位性を実現</div>
+                        <div style="font-size: clamp(20px, 2.5vw, 32px); font-weight: 600; margin-bottom: 24px; color: #F39C12; line-height: 1.3;">競争優位の確立</div>
+                        <div style="font-size: clamp(18px, 2.2vw, 28px); line-height: 1.6; opacity: 0.9;">ビジョンドリブンな事業創出により、競合との明確な差別化と持続的優位性を実現</div>
                     </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 96px; font-size: 40px; font-weight: 600; color: #1B365D;">
+            <div style="text-align: center; margin-top: 96px; font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; color: #1B365D; line-height: 1.4;">
                 今すぐ始めましょう。<br>
                 意義ある新規事業の創出を、一緒に。
             </div>
@@ -1045,6 +1199,54 @@
                 }
             });
         });
+
+        // タッチデバイス対応の改善
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipeGesture();
+        }, { passive: true });
+
+        function handleSwipeGesture() {
+            const swipeThreshold = 50;
+            const swipeDistance = touchStartY - touchEndY;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                // スワイプ動作を検出した場合の処理（必要に応じて実装）
+            }
+        }
+
+        // Intersection Observer for better performance
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.slide').forEach(slide => {
+                observer.observe(slide);
+            });
+        }
+
+        // Reduced motion preference support
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animation = 'none';
+                el.style.transition = 'none';
+            });
+        }
     </script>
 </body>
 </html>
