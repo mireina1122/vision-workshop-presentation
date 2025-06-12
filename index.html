@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビジョン深掘り勉強会企画書</title>
-    <meta name="description" content="IntraStar主催のビジョン深掘り勉強会企画書 - 新規事業開発における意義明確化ワークショップ">
+    <title>パーパス深掘り勉強会企画書</title>
+    <meta name="description" content="IntraStar主催のパーパス深掘り勉強会企画書 - 新規事業開発における意義明確化ワークショップ">
     <meta name="author" content="IntraStar">
     <style>
         * {
@@ -96,19 +96,20 @@
 
         .intrastar-logo {
             position: absolute;
-            top: 80px;
-            right: 80px;
-            width: clamp(80px, 8vw, 120px);
-            height: clamp(80px, 8vw, 120px);
+            top: 40px;
+            right: 40px;
+            width: clamp(60px, 6vw, 100px);
+            height: clamp(60px, 6vw, 100px);
             background: #2E86C1;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(24px, 4vw, 48px);
+            font-size: clamp(20px, 3vw, 40px);
             font-weight: bold;
             color: #FFFFFF;
-            box-shadow: 0 10px 30px rgba(46, 134, 193, 0.4);
+            box-shadow: 0 8px 24px rgba(46, 134, 193, 0.4);
+            z-index: 10;
         }
 
         h1 {
@@ -417,43 +418,6 @@
             border-left: 8px solid #E67E22;
         }
 
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 48px;
-            margin: 72px 0;
-        }
-
-        .metric-card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 48px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-top: 6px solid #2E86C1;
-            transition: all 0.3s ease;
-        }
-
-        .metric-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-        }
-
-        .metric-value {
-            font-size: clamp(28px, 4vw, 52px);
-            font-weight: 800;
-            color: #E67E22;
-            margin-bottom: 16px;
-            line-height: 1;
-        }
-
-        .metric-label {
-            font-size: clamp(13px, 2vw, 24px);
-            color: #2C3E50;
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
         .action-items {
             background: linear-gradient(135deg, #1B365D, #2E86C1);
             color: #FFFFFF;
@@ -497,6 +461,17 @@
             opacity: 0.9;
         }
 
+        .slide:not(.title-slide) {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .slide.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .slide {
                 padding: 32px 16px;
@@ -510,11 +485,11 @@
             }
 
             .intrastar-logo {
-                top: 16px;
-                right: 16px;
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
+                top: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
             }
 
             .executive-summary {
@@ -542,12 +517,6 @@
 
             .timeline::before {
                 display: none;
-            }
-
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-                margin: 32px 0;
             }
 
             .action-grid {
@@ -580,7 +549,7 @@
                 margin-right: 12px;
             }
 
-            .summary-card, .company-card, .framework-stage, .timeline-item, .metric-card {
+            .summary-card, .company-card, .framework-stage, .timeline-item {
                 padding: 20px;
             }
 
@@ -610,11 +579,6 @@
                 gap: 20px;
             }
 
-            .metrics-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 32px;
-            }
-
             .action-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 32px;
@@ -642,26 +606,10 @@
                 gap: 24px;
             }
 
-            .metrics-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 48px;
-            }
-
             .action-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 48px;
             }
-        }
-
-        .slide {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .slide.in-view {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         @keyframes float {
@@ -677,16 +625,14 @@
             .summary-card:hover,
             .company-card:hover,
             .framework-stage:hover,
-            .timeline-item:hover,
-            .metric-card:hover {
+            .timeline-item:hover {
                 transform: none;
             }
 
             .summary-card:active,
             .company-card:active,
             .framework-stage:active,
-            .timeline-item:active,
-            .metric-card:active {
+            .timeline-item:active {
                 transform: scale(0.98);
             }
         }
@@ -713,8 +659,8 @@
     <div class="slide-container">
         <div class="slide title-slide">
             <div class="intrastar-logo">IS</div>
-            <h1>ビジョン深掘り勉強会</h1>
-            <div class="subtitle">「我社が取り組むべき新規事業の意義を明確化する」戦略的ワークショップ</div>
+            <h1>パーパス深掘り勉強会</h1>
+            <div class="subtitle">「我社が取り組むべき新規事業の意義を明確化する」戦略的ワークショップ（企画案）</div>
             <div class="meta-info">
                 <span>主催：IntraStar</span>
                 <span>対象：新規事業開発関係者 5-6名</span>
@@ -733,7 +679,7 @@
                 <div class="summary-card floating" style="animation-delay: 0.2s;">
                     <div class="summary-icon">🔍</div>
                     <div class="summary-title">体系的分析</div>
-                    <div class="summary-text">ビジョンの語彙理解から事業機会探索まで、3段階の構造化アプローチを実行</div>
+                    <div class="summary-text">パーパスの語彙理解から事業機会探索まで、3段階の構造化アプローチを実行（例）</div>
                 </div>
                 <div class="summary-card floating" style="animation-delay: 0.4s;">
                     <div class="summary-icon">🚀</div>
@@ -743,8 +689,8 @@
             </div>
             
             <div class="highlight-box">
-                <h3>本勉強会の戦略的価値</h3>
-                <p>企業のビジョン・パーパスを体系的に分析し、参加者全員が「なぜ我社がこの事業に取り組むべきなのか」という問いに対して、論理的かつ情熱的に答えられるようになることで、組織の新規事業開発力を飛躍的に向上させます。</p>
+                <h3>本勉強会の戦略的価値（案）</h3>
+                <p>企業のパーパス（存在意義）を体系的に分析し、参加者全員が「なぜ我社がこの事業に取り組むべきなのか」という問いに対して、論理的かつ情熱的に答えられるようになることで、組織の新規事業開発力を飛躍的に向上させることを目指します。</p>
             </div>
         </div>
 
@@ -755,8 +701,8 @@
             <div class="executive-summary">
                 <div class="summary-card">
                     <div class="summary-icon">🎯</div>
-                    <div class="summary-title">表面的なビジョン理解</div>
-                    <div class="summary-text">企業のビジョンを知っていても、それが具体的にどのような事業機会につながるか見えない</div>
+                    <div class="summary-title">表面的なパーパス理解</div>
+                    <div class="summary-text">企業のパーパスを知っていても、それが具体的にどのような事業機会につながるか見えない</div>
                 </div>
                 <div class="summary-card">
                     <div class="summary-icon">❓</div>
@@ -771,15 +717,15 @@
             </div>
 
             <div class="action-items">
-                <h3>IntraStarの解決アプローチ</h3>
+                <h3>IntraStarの解決アプローチ（例）</h3>
                 <div class="action-grid">
                     <div class="action-card">
-                        <div class="action-title">体系的分析フレームワーク</div>
-                        <div class="action-desc">語彙の本質理解→因果関係の可視化→事業機会の探索という3段階プロセスで、ビジョンから具体的事業アイデアまでを論理的に導出</div>
+                        <div class="action-title">体系的分析フレームワーク（仮）</div>
+                        <div class="action-desc">語彙の本質理解→因果関係の可視化→事業機会の探索という3段階プロセス案で、パーパスから具体的事業アイデアまでを論理的に導出</div>
                     </div>
                     <div class="action-card">
-                        <div class="action-title">Miro協働ワークショップ</div>
-                        <div class="action-desc">5-6名がリアルタイムで協働し、視覚的思考ツールを活用して深い洞察を創出。個人の限界を超えた集合知を実現</div>
+                        <div class="action-title">Miro協働ワークショップ（例）</div>
+                        <div class="action-desc">5-6名がリアルタイムで協働し、視覚的思考ツールを活用して深い洞察を創出する設計案。個人の限界を超えた集合知を実現</div>
                     </div>
                 </div>
             </div>
@@ -818,12 +764,12 @@
         </div>
 
         <div class="slide">
-            <h1>ビジョン解剖 3段階分析フレームワーク</h1>
+            <h1>パーパス解剖 3段階分析フレームワーク（案）</h1>
             
             <div class="framework-diagram">
                 <div class="framework-stage">
                     <div class="stage-number">1</div>
-                    <div class="stage-title">語彙の本質理解</div>
+                    <div class="stage-title">語彙の本質理解（例）</div>
                     <div class="stage-content">
                         <ul>
                             <li>キーワードの語源・辞書的定義</li>
@@ -837,10 +783,10 @@
                 
                 <div class="framework-stage">
                     <div class="stage-number">2</div>
-                    <div class="stage-title">因果関係の可視化</div>
+                    <div class="stage-title">因果関係の可視化（例）</div>
                     <div class="stage-content">
                         <ul>
-                            <li>ビジョン実現の必要条件特定</li>
+                            <li>パーパス実現の必要条件特定</li>
                             <li>社会課題との接点マッピング</li>
                             <li>技術革新・市場変化との関連性</li>
                             <li>バリューチェーン上での位置</li>
@@ -851,7 +797,7 @@
                 
                 <div class="framework-stage">
                     <div class="stage-number">3</div>
-                    <div class="stage-title">事業機会の探索</div>
+                    <div class="stage-title">事業機会の探索（例）</div>
                     <div class="stage-content">
                         <ul>
                             <li>具体的事業領域の特定</li>
@@ -865,10 +811,10 @@
             </div>
             
             <div class="data-viz">
-                <h3>📊 分析手法とツール</h3>
-                <p><strong>定性分析：</strong>なぜ×5回分析、6つの帽子思考法、因果ループ図作成</p>
-                <p><strong>定量評価：</strong>市場規模分析、競合ポジショニング、ROI試算</p>
-                <p><strong>視覚化：</strong>Miroマインドマップ、ビジネスモデルキャンバス、インパクトマトリックス</p>
+                <h3>📊 分析手法とツール（例）</h3>
+                <p><strong>定性分析案：</strong>なぜ×5回分析、6つの帽子思考法、因果ループ図作成</p>
+                <p><strong>定量評価案：</strong>市場規模分析、競合ポジショニング、ROI試算</p>
+                <p><strong>視覚化案：</strong>Miroマインドマップ、ビジネスモデルキャンバス、インパクトマトリックス</p>
             </div>
         </div>
 
@@ -899,24 +845,24 @@
             </div>
 
             <div class="action-items">
-                <h3>IntraStarファシリテーション戦略</h3>
+                <h3>IntraStarファシリテーション戦略（例）</h3>
                 <div class="action-grid">
                     <div class="action-card">
-                        <div class="action-title">批判的思考の促進</div>
-                        <div class="action-desc">前提を疑い、多角的な視点から検証することで、表面的でない本質的な洞察を導出</div>
+                        <div class="action-title">批判的思考の促進（案）</div>
+                        <div class="action-desc">前提を疑い、多角的な視点から検証することで、表面的でない本質的な洞察を導出する設計</div>
                     </div>
                     <div class="action-card">
-                        <div class="action-title">建設的対話の設計</div>
-                        <div class="action-desc">対立ではなく統合を目指し、異なる意見を新たな価値創造の源泉として活用</div>
+                        <div class="action-title">建設的対話の設計（案）</div>
+                        <div class="action-desc">対立ではなく統合を目指し、異なる意見を新たな価値創造の源泉として活用するアプローチ</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="slide">
-            <h1>効率最大化タイムスケジュール</h1>
+            <h1>タイムスケジュール案</h1>
             
-            <h2>2時間版（集中型）- 平日業務時間対応</h2>
+            <h2>2時間版（集中型）- 平日業務時間対応例</h2>
             <div class="timeline-container">
                 <div class="timeline">
                     <div class="timeline-item">
@@ -953,84 +899,65 @@
             </div>
 
             <div class="data-viz">
-                <h3>⚡ 効率化のポイント</h3>
+                <h3>⚡ 効率化のポイント（案）</h3>
                 <p><strong>時間配分最適化：</strong>各段階15分単位で構造化し、議論の深さと進行速度をバランス</p>
                 <p><strong>並行処理活用：</strong>Miroの同時編集機能で複数の分析軸を並行して進行</p>
                 <p><strong>集中維持設計：</strong>適切な休憩タイミングと変化のあるワークで集中力を維持</p>
             </div>
 
             <div class="highlight-box">
-                <h3>3時間版（深掘り型）追加要素</h3>
-                <p>各段階に+15分を配分し、具体的なケーススタディ分析と競合他社のベストプラクティス研究を追加。より詳細な事業計画策定まで実施可能。</p>
+                <h3>3時間版（深掘り型）追加要素案</h3>
+                <p>各段階に+15分を配分し、具体的なケーススタディ分析と競合他社のベストプラクティス研究を追加。より詳細な事業計画策定まで実施可能にする構想。</p>
             </div>
         </div>
 
         <div class="slide">
-            <h1>期待される戦略的成果</h1>
+            <h1>期待される成果（例）</h1>
             
-            <h2>参加者が獲得する具体的アウトプット</h2>
+            <h2>参加者が獲得する想定アウトプット</h2>
             <div class="executive-summary">
                 <div class="summary-card">
                     <div class="summary-icon">📋</div>
-                    <div class="summary-title">ビジョン分析シート</div>
-                    <div class="summary-text">体系的に整理されたビジョンの構成要素と深層的意味の構造化ドキュメント</div>
+                    <div class="summary-title">パーパス分析シート（例）</div>
+                    <div class="summary-text">体系的に整理されたパーパスの構成要素と深層的意味の構造化ドキュメント</div>
                 </div>
                 <div class="summary-card">
                     <div class="summary-icon">🗺️</div>
-                    <div class="summary-title">事業機会マップ</div>
-                    <div class="summary-text">3-5個の具体的新規事業アイデアと実現可能性・収益性・社会性評価</div>
+                    <div class="summary-title">事業機会マップ（例）</div>
+                    <div class="summary-text">3-5個の具体的新規事業アイデアと実現可能性・収益性・社会性評価案</div>
                 </div>
                 <div class="summary-card">
                     <div class="summary-icon">🎯</div>
-                    <div class="summary-title">意義説明フレームワーク</div>
-                    <div class="summary-text">「なぜ我社が取り組むべきか」を論理的に説明できる再現可能な思考構造</div>
-                </div>
-            </div>
-
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-value">100%</div>
-                    <div class="metric-label">参加者のビジョン理解深度向上</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">3-5個</div>
-                    <div class="metric-label">具体的事業アイデア創出</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">即座</div>
-                    <div class="metric-label">明日からの実践可能性</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-value">継続</div>
-                    <div class="metric-label">組織能力向上への貢献</div>
+                    <div class="summary-title">意義説明フレームワーク（例）</div>
+                    <div class="summary-text">「なぜ我社が取り組むべきか」を論理的に説明できる再現可能な思考構造案</div>
                 </div>
             </div>
 
             <div class="action-items">
-                <h3>長期的能力向上効果</h3>
+                <h3>想定される能力向上効果</h3>
                 <div class="action-grid">
                     <div class="action-card">
-                        <div class="action-title">思考プロセスの内在化</div>
-                        <div class="action-desc">ビジョンから事業機会を体系的に導出する再現可能な思考プロセスを習得し、今後の新規事業開発に継続活用</div>
+                        <div class="action-title">思考プロセスの内在化（例）</div>
+                        <div class="action-desc">パーパスから事業機会を体系的に導出する再現可能な思考プロセスを習得し、今後の新規事業開発に継続活用する想定</div>
                     </div>
                     <div class="action-card">
-                        <div class="action-title">組織文化への波及</div>
-                        <div class="action-desc">参加者が組織内のビジョン理解促進者となり、新規事業創出の文化醸成に貢献</div>
+                        <div class="action-title">組織文化への波及（例）</div>
+                        <div class="action-desc">参加者が組織内のパーパス理解促進者となり、新規事業創出の文化醸成に貢献する想定</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="slide">
-            <h1>実施準備とリソース戦略</h1>
+            <h1>想定リソース案</h1>
             
             <div class="framework-diagram">
                 <div class="framework-stage">
                     <div class="stage-number">1</div>
-                    <div class="stage-title">技術環境整備</div>
+                    <div class="stage-title">理想的な技術環境</div>
                     <div class="stage-content">
                         <ul>
-                            <li>オンライン会議システム（Zoom/Teams）</li>
+                            <li>オンライン会議システム（Zoom/Teams等）</li>
                             <li>Miroアクセス権と専用テンプレート</li>
                             <li>安定インターネット接続環境</li>
                             <li>録画・記録システム（オプション）</li>
@@ -1040,7 +967,7 @@
                 
                 <div class="framework-stage">
                     <div class="stage-number">2</div>
-                    <div class="stage-title">事前準備資料</div>
+                    <div class="stage-title">理想的な事前準備</div>
                     <div class="stage-content">
                         <ul>
                             <li>対象企業詳細情報パッケージ</li>
@@ -1053,7 +980,7 @@
                 
                 <div class="framework-stage">
                     <div class="stage-number">3</div>
-                    <div class="stage-title">運営体制</div>
+                    <div class="stage-title">理想的な運営体制</div>
                     <div class="stage-content">
                         <ul>
                             <li>メインファシリテーター（IntraStar）</li>
@@ -1066,70 +993,30 @@
             </div>
 
             <div class="data-viz">
-                <h3>🛠️ IntraStarの付加価値</h3>
-                <p><strong>専門性：</strong>新規事業開発とビジョン分析における豊富な経験と実績</p>
+                <h3>🛠️ IntraStarの想定付加価値</h3>
+                <p><strong>専門性：</strong>新規事業開発とパーパス分析における経験とノウハウの活用</p>
                 <p><strong>中立性：</strong>組織内政治に影響されない客観的な視点とファシリテーション</p>
-                <p><strong>効率性：</strong>短時間で最大成果を生み出すプロセス設計と進行技術</p>
-                <p><strong>継続性：</strong>一回限りでない、組織能力向上への長期的コミット</p>
+                <p><strong>効率性：</strong>短時間で最大成果を生み出すプロセス設計と進行技術の提供</p>
+                <p><strong>継続性：</strong>一回限りでない、組織能力向上への長期的サポート</p>
             </div>
-        </div>
-
-        <div class="slide">
-            <h1>投資対効果（ROI）分析</h1>
             
-            <h2>コスト・ベネフィット分析</h2>
-            <div class="executive-summary">
-                <div class="summary-card">
-                    <div class="summary-icon">💰</div>
-                    <div class="summary-title">投資コスト</div>
-                    <div class="summary-text">2-3時間 × 5-6名の人的リソース + IntraStarファシリテーション費用</div>
-                </div>
-                <div class="summary-card">
-                    <div class="summary-icon">📈</div>
-                    <div class="summary-title">短期効果</div>
-                    <div class="summary-text">新規事業提案の質向上、意思決定の迅速化、チームの方向性統一</div>
-                </div>
-                <div class="summary-card">
-                    <div class="summary-icon">🚀</div>
-                    <div class="summary-title">長期価値</div>
-                    <div class="summary-text">組織の事業開発力向上、ビジョン浸透、イノベーション文化醸成</div>
-                </div>
-            </div>
-
-            <div class="data-viz">
-                <h3>📊 期待される効果領域</h3>
-                <p><strong>提案品質向上：</strong>ビジョンとの整合性が明確な新規事業提案の創出</p>
-                <p><strong>開発期間短縮：</strong>事業コンセプト策定における議論の効率化</p>
-                <p><strong>チーム生産性：</strong>共通理解に基づく意思決定の迅速化</p>
-                <p><strong>組織エンゲージメント：</strong>ビジョンへの理解と共感度の向上</p>
-            </div>
-
-            <div class="action-items">
-                <h3>成功要因と成果保証</h3>
-                <div class="action-grid">
-                    <div class="action-card">
-                        <div class="action-title">即効性の確保</div>
-                        <div class="action-desc">2-3時間で即座に活用可能な具体的成果物を創出。投資した時間に対する明確なリターンを保証</div>
-                    </div>
-                    <div class="action-card">
-                        <div class="action-title">持続性の構築</div>
-                        <div class="action-desc">一回限りでない継続的な能力向上を実現。組織の長期的競争力強化に貢献</div>
-                    </div>
-                </div>
+            <div class="highlight-box">
+                <h3>※ リソース要件について</h3>
+                <p>上記は理想的な環境設定案です。実際の実施においては、利用可能なリソースに応じて柔軟に調整可能です。最低限、オンライン会議環境とMiroアクセスがあれば実施可能な設計を想定しています。</p>
             </div>
         </div>
 
         <div class="slide">
             <div class="intrastar-logo floating">IS</div>
             <h1 style="color: #1B365D; text-align: center; margin-bottom: 32px; font-size: clamp(24px, 4vw, 54px);">共創する、新しい事業の意義</h1>
-            <div style="font-size: clamp(16px, 3vw, 36px); font-weight: 300; margin-bottom: 48px; color: #2C3E50; text-align: center; border-left: 6px solid #E67E22; padding-left: 24px; max-width: 1000px; margin-left: auto; margin-right: auto; line-height: 1.3;">ビジョンから価値へ、理念から実践へ</div>
+            <div style="font-size: clamp(16px, 3vw, 36px); font-weight: 300; margin-bottom: 48px; color: #2C3E50; text-align: center; border-left: 6px solid #E67E22; padding-left: 24px; max-width: 1000px; margin-left: auto; margin-right: auto; line-height: 1.3;">パーパスから価値へ、理念から実践へ</div>
             
             <div style="background: linear-gradient(135deg, #1B365D, #2E86C1); color: #FFFFFF; border-radius: 20px; padding: 48px 32px; margin: 48px 0;">
-                <h3 style="color: #FFFFFF; font-size: clamp(20px, 3.5vw, 38px); margin-bottom: 32px; text-align: center;">IntraStarと実現する変革</h3>
+                <h3 style="color: #FFFFFF; font-size: clamp(20px, 3.5vw, 38px); margin-bottom: 32px; text-align: center;">IntraStarと目指す変革（案）</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
                     <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
                         <div style="font-size: clamp(15px, 2.2vw, 26px); font-weight: 600; margin-bottom: 12px; color: #F39C12; line-height: 1.2;">深い理解の獲得</div>
-                        <div style="font-size: clamp(12px, 2vw, 22px); line-height: 1.4; opacity: 0.9;">本質的なビジョン理解で、納得できる事業意義を明確化</div>
+                        <div style="font-size: clamp(12px, 2vw, 22px); line-height: 1.4; opacity: 0.9;">本質的なパーパス理解で、納得できる事業意義を明確化</div>
                     </div>
                     <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
                         <div style="font-size: clamp(15px, 2.2vw, 26px); font-weight: 600; margin-bottom: 12px; color: #F39C12; line-height: 1.2;">実践的スキルの習得</div>
@@ -1141,13 +1028,13 @@
                     </div>
                     <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
                         <div style="font-size: clamp(15px, 2.2vw, 26px); font-weight: 600; margin-bottom: 12px; color: #F39C12; line-height: 1.2;">競争優位の確立</div>
-                        <div style="font-size: clamp(12px, 2vw, 22px); line-height: 1.4; opacity: 0.9;">ビジョンドリブンな事業創出で明確な差別化を実現</div>
+                        <div style="font-size: clamp(12px, 2vw, 22px); line-height: 1.4; opacity: 0.9;">パーパスドリブンな事業創出で明確な差別化を実現</div>
                     </div>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 64px; font-size: clamp(20px, 3vw, 36px); font-weight: 600; color: #1B365D; line-height: 1.3;">
-                今すぐ始めましょう。<br>
+                この企画案から始めましょう。<br>
                 意義ある新規事業の創出を、一緒に。
             </div>
         </div>
@@ -1162,7 +1049,7 @@
         }
 
         function animateOnScroll() {
-            const slides = document.querySelectorAll('.slide');
+            const slides = document.querySelectorAll('.slide:not(.title-slide)');
             const windowHeight = window.innerHeight;
             
             slides.forEach(slide => {
@@ -1185,54 +1072,6 @@
             updateProgressBar();
             animateOnScroll();
         });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        let touchStartY = 0;
-        let touchEndY = 0;
-
-        document.addEventListener('touchstart', function(e) {
-            touchStartY = e.changedTouches[0].screenY;
-        }, { passive: true });
-
-        document.addEventListener('touchend', function(e) {
-            touchEndY = e.changedTouches[0].screenY;
-        }, { passive: true });
-
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-
-            document.querySelectorAll('.slide').forEach(slide => {
-                observer.observe(slide);
-            });
-        }
-
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            document.querySelectorAll('*').forEach(el => {
-                el.style.animation = 'none';
-                el.style.transition = 'none';
-            });
-        }
     </script>
 </body>
 </html>
